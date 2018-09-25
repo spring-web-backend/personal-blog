@@ -1,0 +1,3 @@
+jdbc.url = url
+jdbc.username = username
+jdbc.password = password
