@@ -12,7 +12,7 @@
     </div>
     <div class="row">
         <th:block th:if="${msg}">
-            <p th:text="${msg}"></p>
+            <div th:text="${msg}" class="alert alert-success" role="alert"></div>
         </th:block>
     </div>
     <div class="row">
