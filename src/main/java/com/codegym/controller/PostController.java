@@ -1,6 +1,8 @@
 package com.codegym.controller;
 
+import com.codegym.model.Category;
 import com.codegym.model.Post;
+import com.codegym.service.CategoryService;
 import com.codegym.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,6 +15,14 @@ public class PostController {
 
     @Autowired
     private PostService postService;
+
+    @Autowired
+    private CategoryService categoryService;
+
+    @ModelAttribute("categories")
+    public Iterable<Category> categories() {
+        return categoryService.findAll();
+    }
 
     @GetMapping("/create")
     public ModelAndView showCreateForm() {
