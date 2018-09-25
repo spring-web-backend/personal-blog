@@ -16,7 +16,7 @@
         </th:block>
     </div>
     <div class="row">
-        <form method="post" th:action="@{/post/edit}" th:object="${post}">
+        <form method="post" th:action="@{/post/edit/__${post.id}__}" th:object="${post}">
             <input type="hidden" name="id" th:field="*{id}">
 
             <label>Category</label>
@@ -24,7 +24,6 @@
                 <option th:each="c : ${categories}"
                         th:value="${c.id}" th:text="${c.name}"
                         th:selected="${c.id == post.category.id}"
-                >
                 </option>
             </select>
 
