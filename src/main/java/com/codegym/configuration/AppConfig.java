@@ -1,5 +1,9 @@
 package com.codegym.configuration;
 
+import com.codegym.service.CategoryService;
+import com.codegym.service.PostService;
+import com.codegym.service.impl.CategoryServiceImpl;
+import com.codegym.service.impl.PostServiceImpl;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -57,6 +61,16 @@ public class AppConfig extends WebMvcConfigurerAdapter implements ApplicationCon
 
     @Value("${jdbc.password}")
     String password;
+
+    @Bean
+    public PostService postService() {
+        return new PostServiceImpl();
+    }
+
+    @Bean
+    public CategoryService categoryService() {
+        return new CategoryServiceImpl();
+    }
 
     @Bean
     public SpringResourceTemplateResolver templateResolver() {
