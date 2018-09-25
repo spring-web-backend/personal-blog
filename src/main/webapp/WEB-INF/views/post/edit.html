@@ -16,7 +16,7 @@
         </th:block>
     </div>
     <div class="row">
-        <form method="post" th:action="@{/edit}" th:object="${post}">
+        <form method="post" th:action="@{/post/edit}" th:object="${post}">
             <input type="hidden" name="id" th:field="*{id}">
 
             <label>Category</label>
