@@ -16,14 +16,14 @@
         </th:block>
     </div>
     <div class="row">
-        <form method="post" th:action="@{/post/edit/__${post.id}__}" th:object="${post}">
+        <form method="post" th:action="@{/post/edit/__${postForm.id}__}" th:object="${postForm}">
             <input type="hidden" name="id" th:field="*{id}">
 
             <label>Category</label>
             <select th:field="*{category}" class="form-control">
                 <option th:each="c : ${categories}"
                         th:value="${c.id}" th:text="${c.name}"
-                        th:selected="${c.id == post.category.id}"
+                        th:selected="${c.id == postForm.category.id}">
                 </option>
             </select>
 
