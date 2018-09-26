@@ -1,6 +1,7 @@
 package com.codegym.model;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "posts")
@@ -13,9 +14,22 @@ public class Post {
     private String title;
     private String description;
     private String content;
+    private String imgUrl;
+    private Date postedDate;
 
     public Post() {
     }
+
+    public Post(String title, String description, String content, String imgUrl, Date postedDate, Category category) {
+        this.title = title;
+        this.description = description;
+        this.content = content;
+        this.imgUrl = imgUrl;
+        this.postedDate = postedDate;
+        this.category = category;
+    }
+
+
 
     public Long getId() {
         return id;
@@ -47,6 +61,22 @@ public class Post {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
+
+    public Date getPostedDate() {
+        return postedDate;
+    }
+
+    public void setPostedDate(Date postedDate) {
+        this.postedDate = postedDate;
     }
 
     @ManyToOne
