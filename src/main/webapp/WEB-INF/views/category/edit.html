@@ -16,6 +16,9 @@
         </th:block>
     </div>
     <div class="row">
+        <a href="/category/">See all category</a>
+    </div>
+    <div class="row">
         <form th:action="@{/category/edit/__${category.id}__}" th:object="${category}" method="post">
             <input type="hidden" name="id" th:field="*{id}">
             <label>Edit category</label>
