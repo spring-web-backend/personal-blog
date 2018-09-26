@@ -5,15 +5,14 @@ import com.codegym.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.Formatter;
 
-import java.text.ParseException;
 import java.util.Locale;
 
-public class CategoryFomatter implements Formatter<Category> {
+public class CategoryFormatter implements Formatter<Category> {
 
     @Autowired
     CategoryService categoryService;
 
-    public CategoryFomatter(CategoryService categoryService) {
+    public CategoryFormatter(CategoryService categoryService) {
         this.categoryService = categoryService;
     }
 
