@@ -27,7 +27,7 @@ public class PostController {
     @GetMapping("/create")
     public ModelAndView showCreateForm() {
         ModelAndView modelAndView = new ModelAndView("/post/create");
-        modelAndView.addObject("post", new Post());
+        modelAndView.addObject("postForm", new Post());
         return modelAndView;
     }
 

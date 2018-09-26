@@ -30,6 +30,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.spring4.SpringTemplateEngine;
@@ -81,6 +82,16 @@ public class AppConfig extends WebMvcConfigurerAdapter implements ApplicationCon
     @Override
     public void addFormatters(FormatterRegistry registry) {
         registry.addFormatter(new CategoryFormatter(applicationContext.getBean(CategoryService.class)));
+    }
+
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry
+                .addResourceHandler("/resource/**")
+                .addResourceLocations("/resource");
+        registry
+                .addResourceHandler("/image/**")
+                .addResourceLocations("file" + environment.getProperty("image_location"));
     }
 
     @Override
